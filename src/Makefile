@@ -8,106 +8,16 @@
 #              (NOTE: Don't change lines 3 and 4!)
 #  Note:  you may need to remove -DNCFPLUS if you use an old version of netcdf
 #
-#OUTPUTINC = -I$(NETCDF)/include
+OUTPUTINC = -I/home/orf/build/git/spack/opt/spack/linux-fedora31-zen/gcc-9.2.1/netcdf-fortran-4.5.2-tmwzgmxaoh4djovnydwaiqgwrhgnotou/include
 #OUTPUTLIB = -L$(NETCDF)/lib
-#OUTPUTOPT = -DNETCDF -DNCFPLUS
-#LINKOPTS  = -lnetcdf -lnetcdff
-#-----------------------------------------------------------------------------
-
+OUTPUTOPT = -DNETCDF -DNCFPLUS
+LINKOPTS  = -lnetcdf -lnetcdff
 
 #-----------------------------------------------------------------------------
-#                     HARDWARE SECTION
-#-- Choose the appropriate architecture, and uncomment all lines 
-#-- in that section.  See "README.compile" for more information.
-#-----------------------------------------------------------------------------
-#  single processor, Intel compiler 
-#      (eg, NCAR's yellowstone/caldera/cheyenne)
-#FC   = ifort
-#OPTS = -O3 -xHost -ip -assume byterecl -fp-model precise -ftz -no-fma
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#-----------------------------------------------------------------------------
-#  multiple processors, distributed memory (MPI), Intel compiler 
-#      (eg, NCAR's yellowstone/cheyenne)
-#FC   = mpif90
-#OPTS = -O3 -xHost -ip -assume byterecl -fp-model precise -ftz -no-fma
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#DM   = -DMPI
-#-----------------------------------------------------------------------------
-#  multiple processors, shared memory (OpenMP), Intel compiler 
-#      (eg, NCAR's yellowstone/cheyenne)
-#FC   = mpif90
-#OPTS = -O3 -xHost -ip -assume byterecl -fp-model precise -ftz -no-fma -qopenmp
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#-----------------------------------------------------------------------------
-#  single processor, Portland Group compiler
-#FC   = pgf90
-#OPTS = -Mfree -O2 -Ktrap=none -Mautoinline -Minline=reshape
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#-----------------------------------------------------------------------------
-#  multiple processors, distributed memory (MPI), Portland Group compiler
-#FC   = mpif90
-#OPTS = -Mfree -O2 -Ktrap=none -Mautoinline -Minline=reshape
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#DM   = -DMPI
-#-----------------------------------------------------------------------------
-#  multiple processors, shared memory (OpenMP), Portland Group compiler
-#FC   = pgf90
-#OPTS = -Mfree -O2 -Ktrap=none -Mautoinline -Minline=reshape -mp
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#-----------------------------------------------------------------------------
-#  single processor, Portland Group compiler, double precision
-#FC   = pgf90
-#OPTS = -Mfree -O2 -Ktrap=none -Mautoinline -Minline=reshape -r8
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#DP   = -DDP
-#-----------------------------------------------------------------------------
-#  multiple processors, shared memory (OpenMP), Portland Group compiler, double precision
-#FC   = pgf90
-#OPTS = -Mfree -O2 -Ktrap=none -Mautoinline -Minline=reshape -r8 -mp
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#DP   = -DDP
-#-----------------------------------------------------------------------------
-#  single processor, gnu compiler
-#FC   = gfortran
-#OPTS = -ffree-form -ffree-line-length-none -O2 -finline-functions
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#-----------------------------------------------------------------------------
-#  multiple processors, distributed memory (MPI), gnu compiler
-#FC = mpif90
-#OPTS = -ffree-form -ffree-line-length-none -O2 -finline-functions
-#CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
-#DM = -DMPI
-#-----------------------------------------------------------------------------
-#  single processor, Cray fortran compiler
-#      (eg, NCSA's bluewaters)
-#  Remember to enter this on command line first:  module load libfast
-#      (or, comment-out the "-lfast_mv" line below)
-#FC   = ftn
-#OPTS = -O3 -Ovector3 -Oscalar3 -Othread3 -h noomp
-#LINKOPTS = -lfast_mv
-#CPP  = cpp -C -P -traditional
-#-----------------------------------------------------------------------------
-#  multiple processors, distributed memory (MPI), Cray fortran compiler
-#      (eg, NCSA's bluewaters)
-#  Remember to enter this on command line first:  module load libfast
-#      (or, comment-out the "-lfast_mv" line below)
-#FC   = ftn
-#OPTS = -O3 -Ovector3 -Oscalar3 -Othread3 -h noomp
-#LINKOPTS = -lfast_mv
-#CPP  = cpp -C -P -traditional
-#DM   = -DMPI
-#-----------------------------------------------------------------------------
-#  multiple processors, shared memory (OpenMP), Cray fortran compiler
-#      (eg, NCSA's bluewaters)
-#  Remember to enter this on command line first:  module load libfast
-#      (or, comment-out the "-lfast_mv" line below)
-#FC   = ftn
-#OPTS = -O3 -Ovector3 -Oscalar3 -Othread3 -h omp
-#LINKOPTS = -lfast_mv
-#CPP  = cpp -C -P -traditional
-#DM   = -DMPI
-#-----------------------------------------------------------------------------
-#-- You shouldn't need to change anything below here
+FC = mpif90
+OPTS = -ffree-form -ffree-line-length-none -O2 -finline-functions -fopenmp
+CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
+DM = -DMPI
 #-----------------------------------------------------------------------------
 
 SRC   = constants.F \
