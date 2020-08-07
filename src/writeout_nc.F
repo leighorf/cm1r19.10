@@ -314,6 +314,7 @@
       call disp_err( nf90_def_var(ncid,"xh",nf90_float,xhid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","west-east location of scalar grid points") , .true. )
       call disp_err( nf90_put_att(ncid,varid,"units","km") , .true. )
+      call disp_err( nf90_put_att(ncid,varid,"axis","X") , .true. )
 
       call disp_err( nf90_def_var(ncid,"xf",nf90_float,xfid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","west-east location of staggered u grid points") , .true. )
@@ -322,6 +323,7 @@
       call disp_err( nf90_def_var(ncid,"yh",nf90_float,yhid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","south-north location of scalar grid points") , .true. )
       call disp_err( nf90_put_att(ncid,varid,"units","km") , .true. )
+      call disp_err( nf90_put_att(ncid,varid,"axis","Y") , .true. )
 
       call disp_err( nf90_def_var(ncid,"yf",nf90_float,yfid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","south-north location of staggered v grid points") , .true. )
@@ -330,6 +332,7 @@
       call disp_err( nf90_def_var(ncid,"zh",nf90_float,zhid,varid) , .true. ) !ORF make zh
       call disp_err( nf90_put_att(ncid,varid,"long_name","nominal height of scalar grid points") , .true. )
       call disp_err( nf90_put_att(ncid,varid,"units","km") , .true. )
+      call disp_err( nf90_put_att(ncid,varid,"axis","Z") , .true. )
 
       call disp_err( nf90_def_var(ncid,"zf",nf90_float,zfid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","nominal height of staggered w grid points") , .true. )
@@ -797,7 +800,6 @@
       call disp_err( nf90_def_var(ncid,"xh",nf90_float,niid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","west-east location of scalar grid points") , .true. )
       call disp_err( nf90_put_att(ncid,varid,"units","m") , .true. )
-      call disp_err( nf90_put_att(ncid,varid,"axis","X") , .true. ) !For VAPOR3
 
       call disp_err( nf90_def_var(ncid,"xf",nf90_float,nip1id,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","west-east location of staggered u grid points") , .true. )
@@ -806,7 +808,6 @@
       call disp_err( nf90_def_var(ncid,"yh",nf90_float,njid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","south-north location of scalar grid points") , .true. )
       call disp_err( nf90_put_att(ncid,varid,"units","m") , .true. )
-      call disp_err( nf90_put_att(ncid,varid,"axis","Y") , .true. ) !For VAPOR3
 
       call disp_err( nf90_def_var(ncid,"yf",nf90_float,njp1id,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","south-north location of staggered v grid points") , .true. )
@@ -815,7 +816,6 @@
       call disp_err( nf90_def_var(ncid,"zh",nf90_float,nkid,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","nominal height of scalar grid points") , .true. )
       call disp_err( nf90_put_att(ncid,varid,"units","m") , .true. )
-      call disp_err( nf90_put_att(ncid,varid,"axis","Z") , .true. ) !For VAPOR3
 
       call disp_err( nf90_def_var(ncid,"zf",nf90_float,nkp1id,varid) , .true. )
       call disp_err( nf90_put_att(ncid,varid,"long_name","nominal height of staggered w grid points") , .true. )
